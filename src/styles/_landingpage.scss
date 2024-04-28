@@ -23,7 +23,7 @@
 
       @media (max-width: 768px) {
         font-size: 3.4rem;
-       line-height: 1.1;
+        line-height: 1.1;
       }
     }
 
@@ -76,33 +76,57 @@
   }
 
   .image-section {
-    width: 50%;
     position: relative;
+    width: 100%;
+    margin-top: 30px;
   }
 
   .iphone {
     position: absolute;
-    right: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
     z-index: 10;
-    min-width: 350px;
+    min-width: 300px;
     width: 50%;
   }
 
   .gradient {
     position: absolute;
-    right: 0;
-    min-width: 300px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    min-width: 250px;
     width: 40%;
     margin-top: 30px;
   }
 
-  @media (min-width: 806px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
 
     .text-section {
       text-align: left;
       flex: 1;
+    }
+
+    .image-section {
+      width: 50%;
+      position: relative;
+    }
+
+    .iphone {
+      position: absolute;
+      right: 0;
+      z-index: 10;
+      min-width: 350px;
+      width: 50%;
+    }
+
+    .gradient {
+      position: absolute;
+      right: 0;
+      min-width: 300px;
+      width: 40%;
+      margin-top: 30px;
     }
 
     .buttons {

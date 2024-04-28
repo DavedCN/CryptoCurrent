@@ -1,26 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "../Button/Button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuIconRef = useRef(null); // Create a ref for the menu icon
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Close the menu when the user scrolls
+  // Close the menu when the user scrolls or clicks outside the menu icon
   useEffect(() => {
-    const handleScroll = () => {
+    const handleClose = (event) => {
+      // If the click event's target is the menu icon, return early
+      if (menuIconRef.current && menuIconRef.current.contains(event.target)) {
+        return;
+      }
+
       if (isMenuOpen) {
         setIsMenuOpen(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleClose);
+    window.addEventListener("click", handleClose);
 
-    // Clean up the event listener when the component unmounts
+    // Clean up the event listeners when the component unmounts
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleClose);
+      window.removeEventListener("click", handleClose);
     };
   }, [isMenuOpen]);
 
@@ -42,7 +50,7 @@ const Header = () => {
           />
         </a>
       </nav>
-      <div className="menuIcon" onClick={handleMenuClick}>
+      <div className="menuIcon" onClick={handleMenuClick} ref={menuIconRef}>
         ☰
       </div>
     </header>

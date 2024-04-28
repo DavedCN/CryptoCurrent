@@ -1,0 +1,148 @@
+.grid-container {
+  width: 250px;
+  background-color: $darkgrey;
+  border: 2px solid $darkgrey;
+  border-radius: 0.75rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.grid-container-red {
+  &:hover {
+    border: 2px solid $red;
+  }
+}
+
+.grid-container-green {
+  &:hover {
+    border: 2px solid $green;
+  }
+}
+
+.info-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 1.5rem;
+}
+
+.coin-image {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.name-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.coin-symbol {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $white;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.coin-name {
+  font-size: 0.8rem;
+  font-weight: light;
+  color: $grey;
+  margin: 0;
+}
+
+.chip-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 1.5rem;
+}
+
+.price-chip {
+  padding: 0.35rem 0.7rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.green-chip {
+  color: $green;
+  border: 2px solid $green;
+
+  &:hover {
+    background-color: $green;
+    color: $black;
+  }
+}
+
+.red-chip {
+  color: $red;
+  border: 2px solid $red;
+
+  &:hover {
+    background-color: $red;
+    color: $black;
+  }
+}
+
+// Icon.scss
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.icon-green {
+  border: 2px solid $green;
+  color: $green;
+
+  &:hover {
+    background-color: $green;
+    color: $white !important;
+  }
+}
+
+.icon-red {
+  border: 2px solid $red;
+  color: $red;
+
+  &:hover {
+    background-color: $red;
+    color: $white !important;
+  }
+}
+
+.green {
+  color: $green;
+}
+
+.red {
+  color: $red;
+}
+
+.info-container
+{
+    margin: 1.5rem;
+
+    &h3
+    {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+}
+
+
+.total_volume
+{
+    color: $grey;
+    font-size: 0.8rem;
+    font-weight: 500;
+}

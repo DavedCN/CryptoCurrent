@@ -1,0 +1,68 @@
+.tabWrapper {
+  width: 100%;
+  background-color: $black;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.tabHeader {
+  display: flex;
+  padding: 10px;
+}
+
+.tabItem {
+  width: 100%;
+  height: 40px;
+  position: relative;
+
+  a {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    background-color: initial;
+    transition: background-color 2s;
+  }
+
+  &:active {
+    background-color: $blue;
+  }
+
+  &.selected {
+    a {
+      color: $blue !important;
+    }
+  }
+}
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: $blue;
+}
+
+.tabContent {
+  flex: 1;
+  padding: 5px;
+  color: $white;
+  height: 100%;
+  background-color: $black;
+  overflow: auto;
+}
+
+//GRID
+
+.grid-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 2rem;
+}

@@ -4,7 +4,7 @@
   padding: 0 30px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 30px;
 
   .text-section {
     text-align: center;
@@ -78,6 +78,7 @@
   .image-section {
     position: relative;
     margin-top: 30px;
+ 
   }
 
   .iphone {
@@ -85,7 +86,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 10;
-    min-width: 300px;
+    min-width: 275px;
     width: 50%;
   }
 
@@ -93,9 +94,9 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
-    min-width: 250px;
+    min-width: 230px;
     width: 40%;
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
   @media (min-width: 768px) {
@@ -117,17 +118,17 @@
       right: 0;
       transform: translate(-10%, 0%);
       z-index: 10;
-      min-width: 350px;
+      min-width: 300px;
       width: 50%;
     }
 
     .gradient {
       position: absolute;
       right: 0;
-      transform: translate(-10%, 0%);
-      min-width: 300px;
+      transform: translate(0, 0%);
+      min-width: 255px;
       width: 40%;
-      margin-top: 30px;
+   
     }
 
     .buttons {

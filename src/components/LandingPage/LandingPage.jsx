@@ -60,11 +60,11 @@ const LandingPage = () => {
           src={iphone}
           alt="aCrypto tracking app interface"
           initial={{ y: -25 }}
-          animate={{ y: 25}}
+          animate={{ y: 25 }}
           transition={{
             type: "smooth",
             repeatType: "mirror",
-            duration: 1.5,
+            duration: 2,
             repeat: Infinity,
           }}
           className="iphone"

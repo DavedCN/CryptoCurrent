@@ -6,6 +6,7 @@ import { delay, motion } from "framer-motion";
 import { shareData } from "../../functions/sharedata";
 
 import Button from "../Common/Button/Button";
+import Footer from "../Common/Footer";
 const LandingPage = () => {
   const handleShare = async () => {
     try {
@@ -58,7 +59,7 @@ const LandingPage = () => {
       <div className="image-section">
         <motion.img
           src={iphone}
-          alt="aCrypto tracking app interface"
+          alt="Crypto tracking app interface"
           initial={{ y: -25 }}
           animate={{ y: 25 }}
           transition={{

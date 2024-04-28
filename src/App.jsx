@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
-import Footer from "./components/Common/Footer";
 import Header from "./components/Common/Header";
-import LandingPage from "./components/LandingPage/LandingPage";
+import Footer from "./components/Common/Footer";
+import HomePage from "./components/LandingPage/HomePage";
 
 function App() {
   return (
@@ -13,12 +13,9 @@ function App() {
         {/* <Route path="/" element={<LandingPage />} />
         <Route path="/dashboard" element={<DashboardPage />} /> */}
 
-
-          <Route path="/" element={<LandingPage />} />
-        
- 
+        <Route path="/" element={<HomePage />} />
       </Routes>
-      {/* <Footer /> */}
+     
     </>
   );
 }

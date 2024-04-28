@@ -4,6 +4,10 @@
 @import "landingpage";
 @import "footer";
 
+
+* {
+  box-sizing: border-box;
+}
 html {
   scroll-behavior: smooth;
 }

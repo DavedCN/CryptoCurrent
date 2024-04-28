@@ -16,6 +16,7 @@
 
 .nav {
   position: fixed;
+  z-index: 100;
   top: 59px; // Adjust this value as needed
   right: -100%;
   width: 37%;

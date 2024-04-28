@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 
 const Header = () => {
@@ -7,6 +7,22 @@ const Header = () => {
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Close the menu when the user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="header">

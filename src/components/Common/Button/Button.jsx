@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-const Button = ({ className, link, text }) => {
+const Button = ({ func, className, link, text }) => {
   const navigate = useNavigate();
 
   const handleClick = (event) => {
     event.preventDefault();
     navigate(link);
+    func();
   };
 
   return (

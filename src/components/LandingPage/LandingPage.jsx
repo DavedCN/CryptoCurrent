@@ -27,7 +27,7 @@ const LandingPage = () => {
           <Button
             className="landingpagebtn"
             text={"Share App"}
-            onClick={handleShare}
+            func={handleShare}
           />
         </div>
       </div>

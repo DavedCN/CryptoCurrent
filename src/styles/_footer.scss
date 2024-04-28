@@ -1,0 +1,54 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $darkgrey;
+  color: $white;
+  text-align: center;
+  padding: 0;
+
+  @media (max-width: 1000px) {
+    position: static;
+  }
+
+  & h3 {
+    font-size: 25px;
+
+    @media (max-width: 1000px) {
+      font-size: 20px;
+    }
+  }
+
+  &p {
+    font-size: 8px;
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 35px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+
+  & p {
+    color: $grey;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+
+  i {
+    font-size: 26px; // Increase this value to make the icons bigger
+
+    @media (max-width: 1000px) {
+      font-size: 30px; // Bigger icons for mobile view
+    }
+  }
+}

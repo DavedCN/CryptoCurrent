@@ -1,0 +1,69 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: $black;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.companyName {
+  font-size: 28px;
+}
+
+.nav {
+  position: fixed;
+  top: 59px; // Adjust this value as needed
+  right: -100%;
+  width: 35%;
+  height: calc(100% - 50px); // Adjust this value as needed
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  transition: right 0.5s ease; // Add transition for smooth animation
+
+  @media (min-width: 1000px) {
+    position: static;
+    background-color: transparent;
+    flex-direction: row;
+    right: 0;
+    top: 0;
+    height: auto;
+  }
+
+  &.open {
+    right: 0; // Show the menu by setting right to 0
+  }
+}
+
+.nav a {
+  color: $grey !important;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 10px 10px;
+
+  @media (min-width: 1000px) {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.menuIcon {
+
+position: relative;
+right: -25px !important;
+  font-size: 25px;
+  cursor: pointer;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}

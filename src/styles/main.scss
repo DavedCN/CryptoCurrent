@@ -1,0 +1,67 @@
+@import "variables";
+@import "header";
+@import "common";
+@import "landingpage";
+@import "footer";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $black;
+
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: $white;
+}
+
+//  CUSTOM SELECTION
+
+::selection {
+  background-color: $blue;
+  color: $white;
+}
+
+// CUSTOM SCROLLBAR
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blue;
+  border-radius: 10px;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+a {
+  text-decoration: none;
+  color: $white !important;
+}
+
+.blue {
+  color: $blue !important;
+}

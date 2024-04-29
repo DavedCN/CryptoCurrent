@@ -1,5 +1,5 @@
 .grid-container {
-  width: 250px;
+  width: 300px;
   background-color: $darkgrey;
   border: 2px solid $darkgrey;
   border-radius: 0.75rem;
@@ -75,7 +75,7 @@
 
   &:hover {
     background-color: $green;
-    color: $black;
+    color: $white;
   }
 }
 
@@ -85,7 +85,7 @@
 
   &:hover {
     background-color: $red;
-    color: $black;
+    color: $white;
   }
 }
 
@@ -145,4 +145,10 @@
     color: $grey;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+
+.star
+{
+    margin-left: 1.92rem;
 }

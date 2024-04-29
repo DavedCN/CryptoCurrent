@@ -16,6 +16,10 @@ const Grid = ({ coin }) => {
           <h4 className="coin-symbol">{coin.symbol}</h4>
           <h3 className="coin-name">{coin.name}</h3>
         </div>
+
+        <div className={`icon star  ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
+          <BsStar size={15} />
+        </div>
       </div>
       <div className="chip-flex">
         <div
@@ -47,9 +51,3 @@ const Grid = ({ coin }) => {
 };
 
 export default Grid;
-
-{
-  /* <div className="icon">
-    <BsStar color="white" size={32} />
-  </div> */
-}

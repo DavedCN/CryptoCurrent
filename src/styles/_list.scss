@@ -1,0 +1,31 @@
+.list-container {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: inherit;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: $darkgrey;
+  }
+}
+
+.flex-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-info-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-chip-flex {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  gap: 5rem;
+}

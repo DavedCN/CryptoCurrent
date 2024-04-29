@@ -8,7 +8,7 @@ const List = ({ coin }) => {
     <div className="list-container">
       <div className="list-info-flex">
         <img src={coin.image} className="coin-image" alt="coin-image" />
-        <div className="name-col">
+        <div className="name-col-list">
           <h4 className="coin-symbol">{coin.symbol}</h4>
           <h3 className="coin-name">{coin.name}</h3>
         </div>
@@ -40,7 +40,7 @@ const List = ({ coin }) => {
         </div>
 
         <div
-          className={`icon star  ${coinChange < 0 ? "icon-red" : "icon-green"}`}
+          className={`icon   ${coinChange < 0 ? "icon-red" : "icon-green"}`}
         >
           <BsStar size={15} />
         </div>

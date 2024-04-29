@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Grid from "../Grid/Grid";
 import List from "../List/List";
 import Loader from "../../Common/Loader/Loader";
@@ -58,6 +58,15 @@ interface TabProps {
 
 const Tab: React.FC<TabProps> = ({ coins }) => {
   const [activeTab, setActiveTab] = useState<TabType>(tabs[0]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 10000); // 20 seconds
+
+    return () => clearTimeout(timer); // This will clear the timer when the component unmounts
+  }, []);
 
   const handleClick = (e: React.MouseEvent, tab: TabType) => {
     e.preventDefault();
@@ -118,8 +127,10 @@ const Tab: React.FC<TabProps> = ({ coins }) => {
                     </motion.div>
                   ))}
                 </div>
-              ) : (
+              ) : loading ? (
                 <Loader />
+              ) : (
+                <h1 className="no-results">No results found</h1>
               )}
             </motion.div>
           </AnimatePresence>

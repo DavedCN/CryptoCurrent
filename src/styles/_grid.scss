@@ -128,27 +128,24 @@
   color: $red;
 }
 
-.info-container
-{
-    margin: 1.5rem;
+.info-container {
+  margin: 1.5rem;
 
-    &h3
-    {
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
+  &h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
 }
 
-
-.total_volume
-{
-    color: $grey;
-    font-size: 0.8rem;
-    font-weight: 500;
+.total_volume {
+  color: $grey;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
-
 
 .star
 {
-    margin-left: 1.92rem;
+  position: relative;
+  left: 3rem;
+  
 }

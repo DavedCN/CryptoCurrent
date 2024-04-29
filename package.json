@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@table-library/react-table-library": "^4.1.7",
     "axios": "^1.6.8",
     "framer-motion": "^11.1.7",
     "react": "^18.2.0",

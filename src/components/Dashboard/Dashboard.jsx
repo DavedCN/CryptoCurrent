@@ -1,10 +1,19 @@
 import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Tab from "./Tabs/Tab.tsx";
-import Loader from "../Common/Loader/Loader.jsx";
+import Search from "./Search/Search.jsx";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  let filteredCoins = coins.filter((coin) => {
+    return coin.name.toLowerCase().includes(search.toLowerCase());
+  });
 
   useEffect(() => {
     const options = {
@@ -34,7 +43,10 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Fragment><Tab coins={coins} />  </Fragment>
+    <Fragment>
+      <Search search={search} onSearchChange={onSearchChange} />
+      <Tab coins={filteredCoins} />
+    </Fragment>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Tab from "./Tabs/Tab.tsx";
+import Loader from "../Common/Loader/Loader.jsx";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
@@ -33,9 +34,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Fragment>
-      <Tab coins={coins} />
-    </Fragment>
+    <Fragment><Tab coins={coins} />  </Fragment>
   );
 };
 

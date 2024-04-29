@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Grid from "../Grid/Grid";
 import List from "../List/List";
+import Loader from "../../Common/Loader/Loader";
 
 interface TabType {
   name: string;
@@ -53,50 +54,57 @@ const Tab: React.FC<TabProps> = ({ coins }) => {
   const isSelected = (tab: TabType) => activeTab.name === tab.name;
 
   return (
-    <div className="tabWrapper">
-      <div className="tabHeader">
-        {tabs.map((tab) => (
-          <div
-            key={tab.name}
-            className={`tabItem ${isSelected(tab) ? "selected" : ""}`}
-          >
-            <a href="#" onClick={(e) => handleClick(e, tab)}>
-              {tab.label}
-            </a>
+    <Fragment>
+      <div className="tabWrapper">
+        <div className="tabHeader">
+          {tabs.map((tab) => (
+            <div
+              key={tab.name}
+              className={`tabItem ${isSelected(tab) ? "selected" : ""}`}
+            >
+              <a href="#" onClick={(e) => handleClick(e, tab)}>
+                {tab.label}
+              </a>
 
-            {isSelected(tab) && (
-              <motion.div layoutId="indicator" className="indicator" />
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="tabContent">
-        <AnimatePresence>
-          <motion.div
-            key={activeTab.name || "empty"}
-            variants={tabContentVariants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            transition={{
-              duration: 0.3,
-            }}
-          >
-            <div className={activeTab.name === "Grid" ? "grid-flex" : "list"}>
-             
-              {coins.map((coin, i) =>
-                activeTab.name === "Grid" ? (
-                  <Grid key={i} coin={coin} />
-                ) : (
-                  <List key={i} coin={coin} />
-                )
+              {isSelected(tab) && (
+                <motion.div layoutId="indicator" className="indicator" />
               )}
             </div>
-          </motion.div>
-        </AnimatePresence>
+          ))}
+        </div>
+
+        <div className="tabContent">
+          <AnimatePresence>
+            <motion.div
+              key={activeTab.name || "empty"}
+              variants={tabContentVariants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              transition={{
+                duration: 0.3,
+              }}
+            >
+              {coins.length ? (
+                <div
+                  className={activeTab.name === "Grid" ? "grid-flex" : "list"}
+                >
+                  {coins.map((coin, i) =>
+                    activeTab.name === "Grid" ? (
+                      <Grid key={i} coin={coin} />
+                    ) : (
+                      <List key={i} coin={coin} />
+                    )
+                  )}
+                </div>
+              ) : (
+                <Loader />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

@@ -35,6 +35,19 @@ const tabContentVariants = {
   },
 };
 
+const variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2, // Adjust the delay timing here
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 interface CoinType {
   // Define the type of your coins here
 }
@@ -89,13 +102,21 @@ const Tab: React.FC<TabProps> = ({ coins }) => {
                 <div
                   className={activeTab.name === "Grid" ? "grid-flex" : "list"}
                 >
-                  {coins.map((coin, i) =>
-                    activeTab.name === "Grid" ? (
-                      <Grid key={i} coin={coin} />
-                    ) : (
-                      <List key={i} coin={coin} />
-                    )
-                  )}
+                  {coins.map((coin, i) => (
+                    <motion.div
+                      key={i}
+                      custom={i}
+                      initial="hidden"
+                      animate="visible"
+                      variants={variants}
+                    >
+                      {activeTab.name === "Grid" ? (
+                        <Grid coin={coin} />
+                      ) : (
+                        <List coin={coin} />
+                      )}
+                    </motion.div>
+                  ))}
                 </div>
               ) : (
                 <Loader />

@@ -2,7 +2,7 @@ import { FaArrowUp } from "react-icons/fa";
 
 import React from "react";
 
-const ScrollToTop = () => {
+const TopButton = () => {
   // Get the button
   let mybutton = document.getElementById("top-btn");
 
@@ -30,9 +30,9 @@ const ScrollToTop = () => {
         document.documentElement.scrollTop = 0;
       }}
     >
-      <FaArrowUp className="blue top"  />
+      <FaArrowUp className="blue top" size={30} />
     </div>
   );
 };
 
-export default ScrollToTop;
+export default TopButton;

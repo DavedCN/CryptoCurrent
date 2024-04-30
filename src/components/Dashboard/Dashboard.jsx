@@ -4,7 +4,6 @@ import Tab from "./Tabs/Tab.tsx";
 import Search from "./Search/Search.jsx";
 import Pagination from "./Pagination/pagination.jsx";
 import ScrollToTop from "../Common/ScrollToTop/ScrollToTop.jsx";
-import Footer from "../Common/Footer";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
@@ -50,7 +49,6 @@ const Dashboard = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
-      <Footer />
     </Fragment>
   );
 };

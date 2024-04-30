@@ -28,6 +28,15 @@ const Pagination = ({
           }}
         />
       )}
+
+      {currentPage > 3 && (
+        <span
+          className={`page ${currentPage === 1 ? "active" : ""}`}
+          onClick={() => setCurrentPage(1)}
+        >
+          1
+        </span>
+      )}
       {pages.map((page) => (
         <span
           className={`page ${currentPage === page ? "active" : ""}`}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Loader from "../Common/Loader/Loader.jsx";
 import NewsCard from "./NewsCard.jsx";
 import Pagination from "../Dashboard/Pagination/pagination.jsx";
+import ScrollToTop from "../Common/ScrollToTop/ScrollToTop.jsx";
 
 const NewsPage = () => {
   const [news, setNews] = useState([]);
@@ -59,6 +60,7 @@ const NewsPage = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+      <ScrollToTop />
     </div>
   );
 };

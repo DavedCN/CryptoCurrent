@@ -49,6 +49,7 @@ const Dashboard = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
+      <Footer />
     </Fragment>
   );
 };

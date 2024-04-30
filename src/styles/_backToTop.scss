@@ -1,0 +1,17 @@
+.top-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 40px; /* adjust this value as needed */
+    width: 50px;
+    height: 50px;
+    border: 2px solid $blue;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: lighten($color: $darkgrey, $amount: 5);
+    }
+  }
+  

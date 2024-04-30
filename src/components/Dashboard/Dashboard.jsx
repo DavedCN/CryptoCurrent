@@ -3,6 +3,8 @@ import { fetchCoins } from "../../functions/dashboarddata";
 import Tab from "./Tabs/Tab.tsx";
 import Search from "./Search/Search.jsx";
 import Pagination from "./Pagination/pagination.jsx";
+import TopButton from "../Common/BackToTop/BackToTop.jsx";
+
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
@@ -47,6 +49,8 @@ const Dashboard = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+      <TopButton/>
+     
     </Fragment>
   );
 };

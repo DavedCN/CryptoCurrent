@@ -10,9 +10,10 @@ const Pagination = ({
   const totalPages = Math.ceil(totalPosts / postPerPage);
 
   const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.max(totalPages, totalPages);
 
   const pages = Array.from(
-    { length: Math.min(4, totalPages - startPage + 1) },
+    { length: Math.min(3, totalPages - startPage + 1) },
     (_, index) => startPage + index
   );
 
@@ -36,6 +37,14 @@ const Pagination = ({
           {page}
         </span>
       ))}
+      {currentPage < endPage && (
+        <span
+          className={`page ${currentPage === endPage ? "active" : ""}`}
+          onClick={() => setCurrentPage(endPage)}
+        >
+          {endPage}
+        </span>
+      )}
       {totalPosts && (
         <IoMdArrowRoundForward
           className="pagebutton"

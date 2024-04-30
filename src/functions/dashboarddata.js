@@ -7,7 +7,7 @@ export const fetchCoins = async () => {
     params: {
       vs_currency: "usd",
       order: "market_cap_desc",
-      per_page: "100",
+      per_page: "1000",
       locale: "en",
       precision: "2",
     },

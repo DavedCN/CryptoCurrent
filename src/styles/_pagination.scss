@@ -10,8 +10,9 @@
 .page {
   padding: 10px;
   margin: 7px;
-  background-color: darken($color: $blue, $amount: 30);
+  border: 2px solid $grey;
   border-radius: 50%;
+  cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
@@ -26,6 +27,7 @@
 .pagebutton {
   color: darken($color: $blue, $amount: 30);
   border-radius: 50%;
+  cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {

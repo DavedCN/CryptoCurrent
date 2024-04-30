@@ -4,6 +4,7 @@ import Loader from "../Common/Loader/Loader.jsx";
 import NewsCard from "./NewsCard.jsx";
 import Pagination from "../Dashboard/Pagination/pagination.jsx";
 import ScrollToTop from "../Common/ScrollToTop/ScrollToTop.jsx";
+import Footer from "../Common/Footer/index.jsx";
 
 const NewsPage = () => {
   const [news, setNews] = useState([]);
@@ -26,7 +27,6 @@ const NewsPage = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = news?.slice(firstPostIndex, lastPostIndex);
-  console.log(currentPosts);
 
   useEffect(() => {
     let timer;
@@ -61,6 +61,7 @@ const NewsPage = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
+      <Footer/>
     </div>
   );
 };

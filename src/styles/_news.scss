@@ -1,0 +1,46 @@
+.news-items {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  background-color: $darkgrey;
+  border-radius: 0.75rem;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color: $darkgrey, $amount: 2);
+  }
+
+  .news-item {
+    & .news-time {
+      color: $grey;
+      font-size: 0.8rem;
+    }
+    & .news-title {
+      color: $grey;
+      font-size: 1rem;
+    }
+
+    & .news-description {
+      color: $grey;
+    }
+
+    & .news-image {
+      width: 100%;
+      border-radius: 0.75rem 0.75rem 0 0;
+      height: 100px;
+      width: 250px;
+    }
+  }
+}
+
+.news {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 1.5rem;
+}
+

@@ -40,6 +40,7 @@ const NewsPage = () => {
 
   return (
     <div>
+      <h1 className="news-heading">Latest News On Crypto</h1>
       {showLoader ? (
         <Loader />
       ) : news?.length ? (

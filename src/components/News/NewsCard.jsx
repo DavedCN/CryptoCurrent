@@ -4,6 +4,7 @@ import img from "../../assets/cryptonewsimg.jpg";
 const NewsCard = ({ newsItem }) => {
   return (
     <a className="news-container" href={newsItem.url}>
+        
       <div className="news-items">
         <div className="news-item">
           <img src={img} alt={newsItem.title} className="news-image" />

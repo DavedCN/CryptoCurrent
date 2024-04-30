@@ -13,7 +13,7 @@ const Pagination = ({
   const endPage = Math.max(totalPages, totalPages);
 
   const pages = Array.from(
-    { length: Math.min(3, totalPages - startPage + 1) },
+    { length: Math.min(2, totalPages - startPage + 1) },
     (_, index) => startPage + index
   );
 

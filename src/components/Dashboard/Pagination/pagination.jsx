@@ -18,13 +18,15 @@ const Pagination = ({
 
   return (
     <div className="paginate">
-      <IoMdArrowRoundBack
-        className="pagebutton"
-        size={30}
-        onClick={() => {
-          currentPage > 1 && setCurrentPage(currentPage - 1);
-        }}
-      />
+      {totalPosts && (
+        <IoMdArrowRoundBack
+          className="pagebutton"
+          size={30}
+          onClick={() => {
+            currentPage > 1 && setCurrentPage(currentPage - 1);
+          }}
+        />
+      )}
       {pages.map((page) => (
         <span
           className={`page ${currentPage === page ? "active" : ""}`}
@@ -34,13 +36,15 @@ const Pagination = ({
           {page}
         </span>
       ))}
-      <IoMdArrowRoundForward
-        className="pagebutton"
-        size={30}
-        onClick={() => {
-          currentPage < totalPages && setCurrentPage(currentPage + 1);
-        }}
-      />
+      {totalPosts && (
+        <IoMdArrowRoundForward
+          className="pagebutton"
+          size={30}
+          onClick={() => {
+            currentPage < totalPages && setCurrentPage(currentPage + 1);
+          }}
+        />
+      )}
     </div>
   );
 };

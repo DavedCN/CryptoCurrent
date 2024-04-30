@@ -10,14 +10,6 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setpostPerPage] = useState(10);
 
-  const onSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
-
-  let filteredCoins = coins.filter((coin) => {
-    return coin.name.toLowerCase().includes(search.toLowerCase());
-  });
-
   //FETCHING THE DATA FROM COINGECKO API
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +19,19 @@ const Dashboard = () => {
 
     fetchData();
   }, []);
+
+  //SEARCH FUNCTION
+
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  //FILTER ON SEARCH
+  let filteredCoins = coins.filter((coin) => {
+    return coin.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  //PAGINATION
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;

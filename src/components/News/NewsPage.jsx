@@ -25,6 +25,7 @@ const NewsPage = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = news?.slice(firstPostIndex, lastPostIndex);
+  console.log(currentPosts);
 
   useEffect(() => {
     let timer;
@@ -45,7 +46,7 @@ const NewsPage = () => {
         <Loader />
       ) : news?.length ? (
         <div className="news">
-          {news.map((newsItem, index) => (
+          {currentPosts.map((newsItem, index) => (
             <NewsCard key={index} newsItem={newsItem} />
           ))}
         </div>

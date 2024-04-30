@@ -39,9 +39,7 @@ const List = ({ coin }) => {
           <p className="">{coin.market_cap.toLocaleString()}</p>
         </div>
 
-        <div
-          className={`icon   ${coinChange < 0 ? "icon-red" : "icon-green"}`}
-        >
+        <div className={`icon   ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
           <BsStar size={15} />
         </div>
       </div>

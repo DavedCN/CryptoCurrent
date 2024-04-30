@@ -1,11 +1,14 @@
 import { useState, useEffect, Fragment } from "react";
-import axios from "axios";
+import { fetchCoins } from "../../functions/dashboarddata";
 import Tab from "./Tabs/Tab.tsx";
 import Search from "./Search/Search.jsx";
+import Pagination from "./Pagination/pagination.jsx";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setpostPerPage] = useState(10);
 
   const onSearchChange = (e) => {
     setSearch(e.target.value);
@@ -15,37 +18,30 @@ const Dashboard = () => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
+  //FETCHING THE DATA FROM COINGECKO API
   useEffect(() => {
-    const options = {
-      method: "GET",
-      url: "https://api.coingecko.com/api/v3/coins/markets",
-      params: {
-        vs_currency: "usd",
-        order: "market_cap_desc",
-        per_page: "100",
-        locale: "en",
-        precision: "2",
-      },
-      headers: {
-        accept: "application/json",
-        "x-cg-demo-api-key": "	CG-Fc4VXvg45AvhnXrgcjXgiRfs",
-      },
+    const fetchData = async () => {
+      const data = await fetchCoins();
+      setCoins(data);
     };
 
-    axios
-      .request(options)
-      .then(function (response) {
-        setCoins(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    fetchData();
   }, []);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = filteredCoins.slice(firstPostIndex, lastPostIndex);
 
   return (
     <Fragment>
       <Search search={search} onSearchChange={onSearchChange} />
-      <Tab coins={filteredCoins} />
+      <Tab coins={currentPosts} />
+      <Pagination
+        totalPosts={filteredCoins.length}
+        postPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </Fragment>
   );
 };

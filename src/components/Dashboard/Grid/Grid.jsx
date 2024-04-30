@@ -26,7 +26,7 @@ const Grid = ({ coin }) => {
         <div
           className={`price-chip ${coinChange < 0 ? "red-chip" : "green-chip"}`}
         >
-          {coin.price_change_percentage_24h.toFixed(2)}%
+          {coinChange.toFixed(2)}%
         </div>
         <div className={`icon  ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
           {coinChange < 0 ? (

@@ -4,6 +4,7 @@ import Tab from "./Tabs/Tab.tsx";
 import Search from "./Search/Search.jsx";
 import Pagination from "./Pagination/pagination.jsx";
 import ScrollToTop from "../Common/ScrollToTop/ScrollToTop.jsx";
+import Footer from "../Common/Footer/index.jsx";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
@@ -36,14 +37,14 @@ const Dashboard = () => {
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = filteredCoins.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = filteredCoins?.slice(firstPostIndex, lastPostIndex);
 
   return (
     <Fragment>
       <Search search={search} onSearchChange={onSearchChange} />
       <Tab coins={currentPosts} />
       <Pagination
-        totalPosts={filteredCoins.length}
+        totalPosts={filteredCoins?.length}
         postPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}

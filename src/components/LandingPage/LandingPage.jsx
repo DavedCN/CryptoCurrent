@@ -6,7 +6,7 @@ import { delay, motion } from "framer-motion";
 import { shareData } from "../../functions/sharedata";
 
 import Button from "../Common/Button/Button";
-import Footer from "../Common/Footer";
+
 const LandingPage = () => {
   const handleShare = async () => {
     try {

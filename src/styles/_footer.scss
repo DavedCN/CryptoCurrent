@@ -6,6 +6,7 @@
   text-align: center;
 
   & h3 {
+    cursor: pointer;
     font-size: 25px;
 
     @media (max-width: 768px) {
@@ -39,6 +40,7 @@
 }
 
 .social-icons {
+  cursor: pointer;
   display: flex;
   gap: 10px;
 

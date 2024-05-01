@@ -1,27 +1,45 @@
 import { BsStar } from "react-icons/bs";
-import { HiTrendingUp } from "react-icons/hi";
-import { HiTrendingDown } from "react-icons/hi";
+import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const List = ({ coin }) => {
+const List = ({ coin, delay }) => {
   const coinChange = coin.price_change_percentage_24h;
+  const navigate = useNavigate();
   return (
-    <div className="list-container">
-      <div className="list-info-flex">
-        <img src={coin.image} className="coin-image" alt="coin-image" />
-        <div className="name-col-list">
-          <h4 className="coin-symbol">{coin.symbol}</h4>
-          <h3 className="coin-name">{coin.name}</h3>
+    <motion.tr
+      onClick={() => navigate(`/coin/${coin.id}`)}
+      className="unique-list-row"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: delay }}
+    >
+      <td className="unique-td-img">
+        <img
+          src={coin.image}
+          className="coin-image coin-image-td"
+          alt="coin-image"
+        />
+      </td>
+      <td className="unique-td-info">
+        <div className="unique-info-flex">
+          <p className="coin-symbol unique-td-p">{coin.symbol}</p>
+          <p className="coin-name unique-td-p">{coin.name}</p>
         </div>
-        <div className=" list-chip-flex ">
+      </td>
+      <td className={`unique-td-price `}>
+        <div className="unique-chip-flex">
           <div
-            className={`price-chip ${
-              coinChange < 0 ? "red-chip" : "green-chip"
+            className={`unique-price-chip ${
+              coinChange < 0 ? "red-list" : "green-list"
             }`}
           >
             {coin.price_change_percentage_24h.toFixed(2)}%
           </div>
           <div
-            className={`icon  ${coinChange < 0 ? "icon-red" : "icon-green"}`}
+            className={`unique-chip-icon ${
+              coinChange < 0 ? "red-list" : "green-list"
+            }`}
           >
             {coinChange < 0 ? (
               <HiTrendingDown size={18} />
@@ -29,21 +47,32 @@ const List = ({ coin }) => {
               <HiTrendingUp size={18} />
             )}
           </div>
-
-          <div className="flex-info-container">
-            <h3 className={`coin-price  ${coinChange < 0 ? "red" : "green"}`}>
-              ${coin.current_price.toLocaleString()}
-            </h3>
-          </div>
-          <p className="">{coin.total_volume.toLocaleString()}</p>
-          <p className="">{coin.market_cap.toLocaleString()}</p>
         </div>
-
-        <div className={`icon   ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
-          <BsStar size={15} />
-        </div>
+      </td>
+      <td
+        className={`unique-td-current-price ${
+          coinChange < 0 ? "red" : "green"
+        }`}
+      >
+        ${coin.current_price.toLocaleString()}
+      </td>
+      <td className="unique-td-totalVolume">
+        {coin.total_volume.toLocaleString()}
+      </td>
+      <td className="unique-td-marketCap">
+        ${coin.market_cap.toLocaleString()}
+      </td>
+      <td
+        className={`unique-td-watchlist-icon ${
+          coinChange < 0 ? "watchlist-icon-red" : ""
+        }`}
+      ></td>
+      <div
+        className={`star-list ${coinChange < 0 ? "red-list" : "green-list"}`}
+      >
+        <BsStar />
       </div>
-    </div>
+    </motion.tr>
   );
 };
 

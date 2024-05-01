@@ -1,11 +1,22 @@
 import { BsStar } from "react-icons/bs";
+import { FaStar } from "react-icons/fa6";
 import { HiTrendingUp } from "react-icons/hi";
 import { HiTrendingDown } from "react-icons/hi";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const Grid = ({ coin }) => {
+const Grid = ({ coin, delay }) => {
+  const [fav, setFav] = useState(false);
+  const navigate = useNavigate();
   const coinChange = coin.price_change_percentage_24h;
+
   return (
-    <div
+    <motion.div
+      onClick={() => navigate(`/coin/${coin.id}`)}
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: delay }}
       className={`grid-container ${
         coinChange < 0 ? "grid-container-red" : "grid-container-green"
       }`}
@@ -19,7 +30,7 @@ const Grid = ({ coin }) => {
         <div
           className={`icon star  ${coinChange < 0 ? "icon-red" : "icon-green"}`}
         >
-          <BsStar  size={15} />
+          {fav ? <FaStar size={15} /> : <BsStar size={15} />}
         </div>
       </div>
       <div className="chip-flex">
@@ -47,7 +58,7 @@ const Grid = ({ coin }) => {
           Market Cap: {coin.market_cap.toLocaleString()}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuIconRef = useRef(null); // Create a ref for the menu icon
+
+  const navigate = useNavigate();
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,7 +37,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="companyName">
+      <div className="companyName" onClick={() => navigate("/")}>
         CryptoCurrent <span className="blue">.</span>{" "}
       </div>
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>

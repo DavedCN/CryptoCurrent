@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Common/Header";
-import Footer from "./components/Common/Footer";
 import HomePage from "./components/LandingPage/HomePage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NewsPage from "./components/News/NewsPage";
+import CoinPage from "./components/CoinPage/CoinPage";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/compare" element={<HomePage />} />
         <Route path="/watchlist" element={<HomePage />} />
+        <Route path="/coin/:id" element={<CoinPage />} />
         <Route path="/news" element={<NewsPage />} />
       </Routes>
     </>

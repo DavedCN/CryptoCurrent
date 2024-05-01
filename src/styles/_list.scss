@@ -55,9 +55,7 @@
 .unique-td-price {
   border: none;
 
-  @media (max-width: 768px) {
-    margin-left: 20px;
-  }
+
 }
 
 .unique-chip-icon {
@@ -68,10 +66,12 @@
 .unique-chip-flex {
   display: flex;
   align-items: center;
+
   gap: 2rem;
 
   @media (max-width: 768px) {
-    gap: 0.5rem;
+    margin-left: 10px;
+    gap: 1rem;
   }
 }
 
@@ -133,6 +133,10 @@
 
   .unique-td-current-price {
     text-align: center !important;
+
+    @media (max-width: 768px) {
+      margin-left: 50px;
+    }
   }
 
   .unique-list-row {

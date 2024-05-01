@@ -1,27 +1,21 @@
 .footer {
-  left: 0;
   bottom: 0;
   width: 100%;
   background-color: $darkgrey;
   color: $white;
   text-align: center;
-  padding: 0;
-
-  @media (max-width: 1000px) {
-    position: static;
-  }
 
   & h3 {
     font-size: 25px;
 
-    @media (max-width: 1000px) {
-      font-size: 20px;
+    @media (max-width: 768px) {
+      font-size: 18px;
     }
   }
 
   &p {
-    font-size: 8px;
-   padding: 10px;
+    font-size: 7px;
+    padding: 5px;
   }
 }
 
@@ -31,8 +25,12 @@
   align-items: center;
   padding: 5px 35px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     flex-direction: column;
+
+    & p {
+      font-size: 12px;
+    }
   }
 
   & p {
@@ -47,8 +45,8 @@
   i {
     font-size: 26px; // Increase this value to make the icons bigger
 
-    @media (max-width: 1000px) {
-      font-size: 30px; // Bigger icons for mobile view
+    @media (max-width: 768px) {
+      font-size: 20px; // Bigger icons for mobile view
     }
   }
 }

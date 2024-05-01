@@ -61,7 +61,7 @@ const NewsPage = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

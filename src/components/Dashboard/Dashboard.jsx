@@ -50,7 +50,7 @@ const Dashboard = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
-      <Footer />
+      <Footer  />
     </Fragment>
   );
 };

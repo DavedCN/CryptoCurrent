@@ -40,39 +40,7 @@ const LineChart = ({ chartData, priceType, multiAxis }) => {
         display: multiAxis ? true : false,
       },
     },
-    scales: {
-      crypto1: {
-        position: "left",
-      },
-      crypto2: multiAxis && {
-        position: "right",
-      },
-    },
   };
-
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-        yAxisID: "y",
-      },
-    ],
-  };
-
-  console.log(chartData);
 
   return <Line options={options} data={chartData} />;
 };

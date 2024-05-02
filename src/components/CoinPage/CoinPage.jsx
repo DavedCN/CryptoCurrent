@@ -9,33 +9,12 @@ import LineChart from "../../LineChart/LineChart";
 
 const CoinPage = () => {
   const [coinData, setCoinData] = useState([]);
-  const [chartData, setChartData] = useState(false);
+  const [chartData, setChartData] = useState("");
   const [days, setDays] = useState(30);
   const [priceType, setPriceType] = useState("prices");
   const [multiAxis, setMultiAxis] = useState(false);
 
   const { id } = useParams();
-
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-
-  const dataa = {
-    labels,
-    datasets: [
-      {
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,7 +46,7 @@ const CoinPage = () => {
 
         setChartData(dataa);
         console.log(chartData);
-      }, 10000); // 10000 milliseconds = 10 seconds
+      }, 5000); // 10000 milliseconds = 10 seconds
     };
 
     fetchData(); // Call fetchData here to execute the fetch operation
@@ -80,7 +59,7 @@ const CoinPage = () => {
       </div>
       {chartData && (
         <div className="grey-wrapper">
-          <LineChart chartData={chartData} />
+          <LineChart chartData={chartData}  multiAxis={multiAxis}/>
         </div>
       )}
 

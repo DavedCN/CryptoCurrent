@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchData = async (id, days) => {
+export const fetchChartData = async (id, days) => {
   const options = {
     method: "GET",
     url: `https://api.coingecko.com/api/v3/coins/${id}/market_chart`,
@@ -24,4 +24,4 @@ const fetchData = async (id, days) => {
   }
 };
 
-export default fetchData;
+export default fetchChartData;

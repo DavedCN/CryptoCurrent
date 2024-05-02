@@ -21,11 +21,11 @@ ChartJS.register(
   Legend
 );
 
-import { getDate } from "../functions/getdate";
+// import { getDate } from "../functions/getdate";
 
-const date = getDate(" 1714521600000");
+// const date = getDate(" 1714521600000");
 
-console.log(date);
+// console.log(date);
 
 const LineChart = ({ chartData, priceType, multiAxis }) => {
   const options = {

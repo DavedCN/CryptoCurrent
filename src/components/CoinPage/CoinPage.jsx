@@ -7,6 +7,7 @@ import List from "../Dashboard/List/List";
 import CoinInfo from "./CoinInfo";
 import LineChart from "../../LineChart/LineChart";
 import { fetchChartData } from "../../functions/coinChartData";
+import Footer from "../Common/Footer";
 
 // Custom hook for fetching coin data
 const useFetchCoinData = (id, days, priceType) => {
@@ -98,6 +99,7 @@ const CoinPage = () => {
         </div>
       )}
       <CoinInfo heading={coinData?.name} desc={coinData?.desc} />
+      <Footer />
     </Fragment>
   );
 };

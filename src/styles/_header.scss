@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 20px;
+  padding: 25px 20px;
   background-color: $black;
   color: $white;
   font-family: "Inter", sans-serif;
@@ -12,13 +12,14 @@
 
 .companyName {
   font-size: 25px;
-  margin-top: -15px;
+  margin-top: -10px;
   cursor: pointer;
 }
 
 .nav {
   position: fixed;
   z-index: 100;
+  top: 59px; // Adjust this value as needed
   right: -100%;
   width: 40%;
   height: calc(100% - 50px); // Adjust this value as needed

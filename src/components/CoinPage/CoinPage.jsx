@@ -21,10 +21,10 @@ const CoinPage = () => {
     const fetchData = async () => {
       const data = await fetchCoinData(id);
       coinObject(setCoinData, data);
-  
-      const chartData = await fetchChartData("bitcoin", "30");
+
+      const chartData = await fetchChartData(id, days);
       console.log(chartData.prices);
-  
+
       if (coinData) {
         const labels = [];
         const dataa = {
@@ -37,16 +37,16 @@ const CoinPage = () => {
             },
           ],
         };
-  
+
         chartData.prices.forEach(([timestamp, price]) => {
           labels.push(new Date(timestamp).toLocaleDateString());
           dataa.datasets[0].data.push(price);
         });
-  
+
         setChartData({ ...dataa, labels });
       }
     };
-  
+
     fetchData();
   }, [id]);
   return (

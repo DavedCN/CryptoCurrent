@@ -37,6 +37,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10rem;
+  padding: 2rem ;
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -49,7 +50,7 @@
     padding: 2rem;
 
     @media (max-width: 768px) {
-      font-size: 10px;
+      font-size: 9px;
       padding: 0.5rem;
     }
     select {
@@ -61,7 +62,7 @@
       cursor: pointer;
 
       @media (max-width: 768px) {
-        font-size: 13px;
+        font-size: 11px;
       }
 
       &:hover {

@@ -2,12 +2,15 @@ import { InfinitySpin } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '60vh'
-    }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        zIndex: 9999,
+      }}
+    >
       <InfinitySpin
         visible={true}
         width="200"

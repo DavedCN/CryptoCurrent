@@ -1,0 +1,29 @@
+.grey-wrapper {
+  background-color: $darkgrey;
+  width: 90%;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+}
+
+//COIN INFO
+.coin-info {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.coin-info-desc {
+  p {
+    &:hover {
+      color: lighten($color: $grey, $amount: 10) !important;
+    }
+  }
+  a {
+    text-decoration: underline !important;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $blue !important;
+    }
+  }
+}

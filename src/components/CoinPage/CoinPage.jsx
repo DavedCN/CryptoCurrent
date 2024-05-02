@@ -7,6 +7,7 @@ import List from "../Dashboard/List/List";
 import CoinInfo from "./CoinInfo";
 import LineChart from "../../LineChart/LineChart";
 import { fetchChartData } from "../../functions/coinChartData";
+import DropDown from "../Common/DropDown/DropDown";
 import Footer from "../Common/Footer";
 
 // Custom hook for fetching coin data
@@ -30,7 +31,6 @@ const useFetchCoinData = (id, days, priceType) => {
               borderColor: "#3a80e9",
               backgroundColor: "#3a80e9",
               fill: true,
-              yAxisID: "y",
             },
           ],
         };
@@ -76,13 +76,11 @@ const CoinPage = () => {
         <div className="grey-wrapper chart">
           <div className="options">
             <div className="dropDown">
-              Prices Change in :{" "}
-              <select value={days} onChange={handleDaysChange}>
-                <option value={30}>30 days</option>
-                <option value={90}>90 days</option>
-                <option value={180}>180 days</option>
-                <option value={365}>365 days</option>
-              </select>
+              <DropDown
+                days={days}
+                handleDaysChange={handleDaysChange}
+                className={"dropdown"}
+              />
             </div>
             <div className="priceType">
               <button onClick={() => handlePriceType("prices")}>Prices</button>

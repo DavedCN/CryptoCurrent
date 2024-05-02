@@ -1,0 +1,14 @@
+.customdropcontain {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.1rem;
+}
+
+.customdrop {
+  padding: 1rem;
+  color: $white;
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

@@ -33,17 +33,16 @@
 }
 
 .options {
-
-
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 10rem;
   width: 90%;
   border-radius: 10px;
 
   .dropDown {
     color: $white !important;
-    padding: 1.5rem;
+    padding: 2rem;
     select {
       padding: 0.5rem;
       border-radius: 5px;

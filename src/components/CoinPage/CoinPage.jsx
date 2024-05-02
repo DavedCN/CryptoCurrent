@@ -70,6 +70,7 @@ const CoinPage = () => {
         <div className="grey-wrapper">
           <div className="options">
             <div className="dropDown">
+              Prices Change in :{" "}
               <select value={days} onChange={handleDaysChange}>
                 <option value={30}>30 days</option>
                 <option value={90}>90 days</option>

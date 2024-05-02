@@ -27,3 +27,47 @@
     }
   }
 }
+
+.options {
+  margin: 0.5rem auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+
+  .dropDown {
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      background-color: $darkgrey;
+      border: none;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($color: $grey, $amount: 10);
+      }
+    }
+  }
+
+  .priceType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      padding: 0.5rem;
+      border-radius: 5px;
+      background-color: $darkgrey;
+      border: none;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($color: $grey, $amount: 10);
+      }
+    }
+  }
+}

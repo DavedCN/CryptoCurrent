@@ -46,7 +46,7 @@ const CoinPage = () => {
 
         setChartData(dataa);
         console.log(chartData);
-      }, 5000); // 10000 milliseconds = 10 seconds
+      }, 100); // 10000 milliseconds = 10 seconds
     };
 
     fetchData(); // Call fetchData here to execute the fetch operation

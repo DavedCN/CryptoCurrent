@@ -40,15 +40,15 @@ const CoinPage = () => {
               data: [],
               borderColor: "#3a80e9",
               backgroundColor: "#3a80e9",
-              fill:true,
+              fill: true,
               yAxisID: "y",
             },
           ],
         };
 
-        chartData.prices.forEach(([timestamp, price]) => {
+        chartData[priceType].forEach(([timestamp, dataPoint]) => {
           labels.push(new Date(timestamp).toLocaleDateString());
-          dataa.datasets[0].data.push(price);
+          dataa.datasets[0].data.push(dataPoint);
         });
 
         setChartData({ ...dataa, labels });
@@ -61,26 +61,6 @@ const CoinPage = () => {
   console.log(chartData);
   return (
     <Fragment>
-      <div className="options">
-        <div className="dropDown">
-          <select value={days} onChange={handleDaysChange}>
-            <option value={30}>30 days</option>
-            <option value={90}>90 days</option>
-            <option value={180}>180 days</option>
-            <option value={365}>365 days</option>
-          </select>
-        </div>
-        <div className="priceType">
-          <button onClick={() => handlePriceType("prices")}>Prices</button>
-          <button onClick={() => handlePriceType("market_caps")}>
-            Market Cap
-          </button>
-          <button onClick={() => handlePriceType("total_volumes")}>
-            Volume
-          </button>
-        </div>
-      </div>
-
       <div className="grey-wrapper">
         {" "}
         {coinData?.length !== 0 ? <List coin={coinData} /> : <Loader />}
@@ -88,6 +68,26 @@ const CoinPage = () => {
 
       {chartData && (
         <div className="grey-wrapper">
+          <div className="options">
+            <div className="dropDown">
+              <select value={days} onChange={handleDaysChange}>
+                <option value={30}>30 days</option>
+                <option value={90}>90 days</option>
+                <option value={180}>180 days</option>
+                <option value={365}>365 days</option>
+              </select>
+            </div>
+            <div className="priceType">
+              <button onClick={() => handlePriceType("prices")}>Prices</button>
+              <button onClick={() => handlePriceType("market_caps")}>
+                Market Cap
+              </button>
+              <button onClick={() => handlePriceType("total_volumes")}>
+                Volume
+              </button>
+            </div>
+          </div>
+
           <LineChart chartData={chartData} multiAxis={multiAxis} />
         </div>
       )}

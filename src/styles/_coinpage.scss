@@ -28,19 +28,26 @@
   }
 }
 
+.pricechange {
+  padding: 50rem 1rem !important;
+}
+
 .options {
-  margin: 0.5rem auto;
-  padding: 1rem;
+
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5rem;
+  width: 90%;
+  border-radius: 10px;
 
   .dropDown {
+    color: $white !important;
+    padding: 1.5rem;
     select {
       padding: 0.5rem;
       border-radius: 5px;
-      background-color: $darkgrey;
+      background-color: lighten($color: $darkgrey, $amount: 10);
       border: none;
       color: $white;
       cursor: pointer;
@@ -56,11 +63,12 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    width: 15rem;
 
     button {
       padding: 0.5rem;
       border-radius: 5px;
-      background-color: $darkgrey;
+      background-color: lighten($color: $darkgrey, $amount: 10);
       border: none;
       color: $white;
       cursor: pointer;

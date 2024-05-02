@@ -21,12 +21,6 @@ ChartJS.register(
   Legend
 );
 
-// import { getDate } from "../functions/getdate";
-
-// const date = getDate(" 1714521600000");
-
-// console.log(date);
-
 const LineChart = ({ chartData, priceType, multiAxis }) => {
   const options = {
     responsive: true,
@@ -36,6 +30,10 @@ const LineChart = ({ chartData, priceType, multiAxis }) => {
     },
     stacked: false,
     plugins: {
+      filler: {
+        
+        propagate: true,
+      },
       legend: {
         display: multiAxis ? true : false,
       },

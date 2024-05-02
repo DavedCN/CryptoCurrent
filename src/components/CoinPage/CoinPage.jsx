@@ -38,8 +38,9 @@ const CoinPage = () => {
           datasets: [
             {
               data: [],
-              borderColor: "rgb(255, 99, 132)",
-              backgroundColor: "rgba(255, 99, 132, 0.5)",
+              borderColor: "#3a80e9",
+              backgroundColor: "#3a80e9",
+              fill:true,
               yAxisID: "y",
             },
           ],

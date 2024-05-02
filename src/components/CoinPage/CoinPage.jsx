@@ -82,7 +82,7 @@ const CoinPage = () => {
             <div className="priceType">
               <button onClick={() => handlePriceType("prices")}>Prices</button>
               <button onClick={() => handlePriceType("market_caps")}>
-                Market Cap
+                Market
               </button>
               <button onClick={() => handlePriceType("total_volumes")}>
                 Volume

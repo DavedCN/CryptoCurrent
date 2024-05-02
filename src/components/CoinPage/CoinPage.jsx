@@ -7,6 +7,7 @@ import List from "../Dashboard/List/List";
 import CoinInfo from "./CoinInfo";
 import LineChart from "../../LineChart/LineChart";
 import { fetchChartData } from "../../functions/coinChartData";
+import { shortenLabel } from "../../functions/shortenLabel";
 
 const CoinPage = () => {
   const [coinData, setCoinData] = useState([]);
@@ -67,7 +68,7 @@ const CoinPage = () => {
       </div>
 
       {chartData && (
-        <div className="grey-wrapper">
+        <div className="grey-wrapper chart">
           <div className="options">
             <div className="dropDown">
               Prices Change in :{" "}

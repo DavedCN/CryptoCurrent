@@ -5,6 +5,7 @@ import HomePage from "./components/LandingPage/HomePage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NewsPage from "./components/News/NewsPage";
 import CoinPage from "./components/CoinPage/CoinPage";
+import Compare from "./components/Compare/ComparePage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/compare" element={<HomePage />} />
+        <Route path="/compare" element={<Compare />} />
         <Route path="/watchlist" element={<HomePage />} />
         <Route path="/coin/:id" element={<CoinPage />} />
         <Route path="/news" element={<NewsPage />} />

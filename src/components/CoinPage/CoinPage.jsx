@@ -35,7 +35,7 @@ const useFetchCoinData = (id, days, priceType) => {
           ],
         };
 
-        chartData[priceType].forEach(([timestamp, dataPoint]) => {
+        chartData[priceType]?.forEach(([timestamp, dataPoint]) => {
           labels.push(new Date(timestamp).toLocaleDateString());
           dataa.datasets[0].data.push(dataPoint);
         });

@@ -1,29 +1,17 @@
 import { useParams } from "react-router-dom";
 import { fetchCoinData } from "../../functions/coindata";
 import { coinObject } from "../../functions/coinObject";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useCallback } from "react";
 import Loader from "../Common/Loader/Loader";
 import List from "../Dashboard/List/List";
 import CoinInfo from "./CoinInfo";
 import LineChart from "../../LineChart/LineChart";
 import { fetchChartData } from "../../functions/coinChartData";
-import { shortenLabel } from "../../functions/shortenLabel";
 
-const CoinPage = () => {
+// Custom hook for fetching coin data
+const useFetchCoinData = (id, days, priceType) => {
   const [coinData, setCoinData] = useState([]);
-  const [chartData, setChartData] = useState("");
-  const [days, setDays] = useState(30);
-  const [priceType, setPriceType] = useState("prices");
-  const [multiAxis, setMultiAxis] = useState(false);
-  const handleDaysChange = (e) => {
-    setDays(parseInt(e.target.value));
-  };
-
-  const handlePriceType = (type) => {
-    setPriceType(type);
-  };
-
-  const { id } = useParams();
+  const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +19,6 @@ const CoinPage = () => {
       coinObject(setCoinData, data);
 
       const chartData = await fetchChartData(id, days);
-      console.log(chartData);
 
       if (coinData) {
         const labels = [];
@@ -59,7 +46,24 @@ const CoinPage = () => {
     fetchData();
   }, [id, days, priceType]);
 
-  console.log(chartData);
+  return { coinData, chartData };
+};
+
+const CoinPage = () => {
+  const [days, setDays] = useState(30);
+  const [priceType, setPriceType] = useState("prices");
+  const { id } = useParams();
+
+  const { coinData, chartData } = useFetchCoinData(id, days, priceType);
+
+  const handleDaysChange = useCallback((e) => {
+    setDays(parseInt(e.target.value));
+  }, []);
+
+  const handlePriceType = useCallback((type) => {
+    setPriceType(type);
+  }, []);
+
   return (
     <Fragment>
       <div className="grey-wrapper">
@@ -90,7 +94,7 @@ const CoinPage = () => {
             </div>
           </div>
 
-          <LineChart chartData={chartData} multiAxis={multiAxis} />
+          <LineChart chartData={chartData} />
         </div>
       )}
       <CoinInfo heading={coinData?.name} desc={coinData?.desc} />

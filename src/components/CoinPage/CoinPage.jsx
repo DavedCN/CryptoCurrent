@@ -8,6 +8,7 @@ import CoinInfo from "./CoinInfo";
 import LineChart from "../../LineChart/LineChart";
 import { fetchChartData } from "../../functions/coinChartData";
 import DropDown from "../Common/DropDown/DropDown";
+import { handlePriceType } from "../../functions/handlepriceType";
 import Footer from "../Common/Footer";
 
 // Custom hook for fetching coin data
@@ -57,14 +58,6 @@ const CoinPage = () => {
 
   const { coinData, chartData } = useFetchCoinData(id, days, priceType);
 
-  const handleDaysChange = useCallback((e) => {
-    setDays(parseInt(e.target.value));
-  }, []);
-
-  const handlePriceType = useCallback((type) => {
-    setPriceType(type);
-  }, []);
-
   return (
     <Fragment>
       <div className="grey-wrapper">
@@ -76,18 +69,20 @@ const CoinPage = () => {
         <div className="grey-wrapper chart">
           <div className="options">
             <div className="dropDown">
-              <DropDown
-                days={days}
-                handleDaysChange={handleDaysChange}
-                className={"dropdown"}
-              />
+              <DropDown days={days} setDays={setDays} className={"dropdown"} />
             </div>
             <div className="priceType">
-              <button onClick={() => handlePriceType("prices")}>Prices</button>
-              <button onClick={() => handlePriceType("market_caps")}>
+              <button onClick={() => handlePriceType("prices", setPriceType)}>
+                Prices
+              </button>
+              <button
+                onClick={() => handlePriceType("market_caps", setPriceType)}
+              >
                 Market
               </button>
-              <button onClick={() => handlePriceType("total_volumes")}>
+              <button
+                onClick={() => handlePriceType("total_volumes", setPriceType)}
+              >
                 Volume
               </button>
             </div>

@@ -1,7 +1,11 @@
 // DropDown.jsx
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
-const DropDown = ({ days, handleDaysChange, className }) => {
+const DropDown = ({ days, setDays, className }) => {
+  const handleDaysChange = useCallback((e) => {
+    setDays(parseInt(e.target.value));
+  }, []);
+
   return (
     <div className={className}>
       Prices Change in :{" "}

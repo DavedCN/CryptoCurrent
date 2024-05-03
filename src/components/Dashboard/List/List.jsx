@@ -34,7 +34,7 @@ const List = ({ coin, delay }) => {
               coinChange < 0 ? "red-list" : "green-list"
             }`}
           >
-            {coin.price_change_percentage_24h.toFixed(2)}%
+            {coin.price_change_percentage_24h?.toFixed(2)}%
           </div>
           <div
             className={`unique-chip-icon ${
@@ -54,13 +54,13 @@ const List = ({ coin, delay }) => {
           coinChange < 0 ? "red" : "green"
         }`}
       >
-        ${coin.current_price.toLocaleString()}
+        ${coin.current_price?.toLocaleString()}
       </td>
       <td className="unique-td-totalVolume">
-        {coin.total_volume.toLocaleString()}
+        {coin.total_volume?.toLocaleString()}
       </td>
       <td className="unique-td-marketCap">
-        ${coin.market_cap.toLocaleString()}
+        ${coin.market_cap?.toLocaleString()}
       </td>
       <td
         className={`unique-td-watchlist-icon ${

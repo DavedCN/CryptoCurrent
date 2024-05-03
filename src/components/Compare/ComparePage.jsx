@@ -8,10 +8,13 @@ import List from "../Dashboard/List/List";
 import LineChartMulti from "../../LineChart/LineChartMulti";
 import CustomDropDown from "../Common/DropDown/CustomDropDown";
 import DropDown from "../Common/DropDown/DropDown";
+import { handlePriceType } from "../../functions/handlepriceType";
 
 const ComparePage = () => {
   const [coinData1, setCoinData1] = useState(null);
   const [coinData2, setCoinData2] = useState(null);
+  const [coinID1, setCoinID1] = useState("bitcoin");
+  const [coinID2, setCoinID2] = useState("ethereum");
   const [priceType, setPriceType] = useState("prices");
   const [days, setDays] = useState(30);
 
@@ -19,14 +22,14 @@ const ComparePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data1 = await fetchCoinData("ethereum");
+      const data1 = await fetchCoinData(coinID1);
       coinObject(setCoinData1, data1);
 
-      const data2 = await fetchCoinData("staked-ether");
+      const data2 = await fetchCoinData(coinID2);
       coinObject(setCoinData2, data2);
 
-      const chartData1 = await fetchChartData("ethereum", days);
-      const chartData2 = await fetchChartData("staked-ether", days);
+      const chartData1 = await fetchChartData(coinID1, days);
+      const chartData2 = await fetchChartData(coinID2, days);
 
       if (chartData1 && chartData2) {
         const labels = [];
@@ -52,24 +55,22 @@ const ComparePage = () => {
               data: chdata1,
               borderColor: "rgb(255, 99, 132)",
               backgroundColor: "rgba(255, 99, 132, 0.5)",
+              yAxisID: "y",
             },
             {
               label: data2.name,
               data: chdata2,
               borderColor: "rgb(53, 162, 235)",
               backgroundColor: "rgba(53, 162, 235, 0.5)",
+              yAxisID: "y1",
             },
           ],
         });
-        console.log(chartData1);
-        console.log(chartData2);
       }
     };
 
     fetchData();
-  }, [days, priceType, data]);
-
-  console.log(data);
+  }, [days, priceType, data, coinID1, coinID2]);
 
   return (
     <div>
@@ -77,14 +78,16 @@ const ComparePage = () => {
         <div>
           <div className="grey-wrapper customdropcontain">
             <div className="customdrop">
-              Crypto 1 <CustomDropDown />
+              Crypto 1{" "}
+              <CustomDropDown setCoinID={setCoinID1} value={"Bitcoin"} />
             </div>
             <div className="customdrop">
-              Crypto 2 <CustomDropDown />
+              Crypto 2{" "}
+              <CustomDropDown setCoinID={setCoinID2} value={"Ethereum"} />
             </div>
-            {/* <div className="customdrop">
-              <DropDown />
-            </div> */}
+            <div className="customdrop">
+              <DropDown days={days} setDays={setDays} />
+            </div>
           </div>
 
           <div className="grey-wrapper">
@@ -99,6 +102,19 @@ const ComparePage = () => {
       )}
 
       <div className="grey-wrapper">
+        <div className="priceType">
+          <button onClick={() => handlePriceType("prices", setPriceType)}>
+            Prices
+          </button>
+          <button onClick={() => handlePriceType("market_caps", setPriceType)}>
+            Market
+          </button>
+          <button
+            onClick={() => handlePriceType("total_volumes", setPriceType)}
+          >
+            Volume
+          </button>
+        </div>
         {data && <LineChartMulti chartData={data} />}
       </div>
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchCoins } from "../../../functions/dashboarddata";
 
-const CustomDropdown = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+const CustomDropdown = ({ setCoinID, value }) => {
+  const [selectedOption, setSelectedOption] = useState(null); // Set the default selected option to "bitcoin"
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const CustomDropdown = () => {
   }, [selectedOption]);
 
   const handleOptionChange = (event) => {
+    setCoinID(event.target.value);
     setSelectedOption(event.target.value);
   };
 
@@ -29,8 +30,8 @@ const CustomDropdown = () => {
       value={selectedOption}
       onChange={handleOptionChange}
     >
-      <option value="">Select</option>
-      {options.map((option) => (
+      <option value="">{value}</option>
+      {options?.map((option) => (
         <option key={option.id} value={option.id}>
           {option.name}
         </option>

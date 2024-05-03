@@ -42,7 +42,7 @@ const ComparePage = () => {
           chdata1.push(dataPoint);
         });
 
-        console.log(chartData1.prices);
+        console.log(chdata2);
 
         chartData2[priceType]?.forEach(([timestamp, dataPoint]) => {
           chdata2.push(dataPoint);

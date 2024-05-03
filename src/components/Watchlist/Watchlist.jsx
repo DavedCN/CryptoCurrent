@@ -26,7 +26,15 @@ function Watchlist() {
         <Tab coins={coins} />
       ) : (
         <div>
-          <h1 className="no-results">Sorry, No Items In Your Watchlist.</h1>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+            className="no-results"
+          >
+            Sorry, No Items In Your Watchlist.
+          </h1>
           <div
             style={{
               display: "flex",

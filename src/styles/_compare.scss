@@ -12,3 +12,22 @@
     font-size: 0.8rem;
   }
 }
+
+.priceType {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.priceTypeMulti {
+  text-align: center;
+  border: 1px solid $blue;
+  background-color: transparent;
+  color: $white;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color: $darkgrey, $amount: 5);
+  }
+}

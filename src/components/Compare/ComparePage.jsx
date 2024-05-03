@@ -98,15 +98,15 @@ const ComparePage = () => {
           </div>
           <div className="grey-wrapper">
             <div className="priceType">
-              <button onClick={() => handlePriceType("prices", setPriceType)}>
+              <button className="priceTypeMulti" onClick={() => handlePriceType("prices", setPriceType)}>
                 Prices
               </button>
-              <button
+              <button className="priceTypeMulti"
                 onClick={() => handlePriceType("market_caps", setPriceType)}
               >
                 Market
               </button>
-              <button
+              <button className="priceTypeMulti"
                 onClick={() => handlePriceType("total_volumes", setPriceType)}
               >
                 Volume

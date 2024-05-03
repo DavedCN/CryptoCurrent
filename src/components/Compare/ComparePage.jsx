@@ -9,6 +9,7 @@ import LineChartMulti from "../../LineChart/LineChartMulti";
 import CustomDropDown from "../Common/DropDown/CustomDropDown";
 import DropDown from "../Common/DropDown/DropDown";
 import { handlePriceType } from "../../functions/handlepriceType";
+import Footer from "../Common/Footer";
 
 const ComparePage = () => {
   const [coinData1, setCoinData1] = useState(null);
@@ -118,9 +119,11 @@ const ComparePage = () => {
           <CoinInfo heading={coinData1?.name} desc={coinData1?.desc} />
           <CoinInfo heading={coinData2?.name} desc={coinData2?.desc} />
         </div>
+        
       ) : (
         <Loader />
       )}
+      <Footer />
     </div>
   );
 };

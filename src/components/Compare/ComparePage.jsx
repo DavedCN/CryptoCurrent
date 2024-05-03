@@ -79,14 +79,12 @@ const ComparePage = () => {
         <div>
           <div className="grey-wrapper customdropcontain">
             <div className="customdrop">
-              Crypto 1{" "}
-              <CustomDropDown setCoinID={setCoinID1} value={"Bitcoin"} />
+              Crypto 1 <CustomDropDown setCoinID={setCoinID1} />
             </div>
             <div className="customdrop">
-              Crypto 2{" "}
-              <CustomDropDown setCoinID={setCoinID2} value={"Ethereum"} />
+              Crypto 2 <CustomDropDown setCoinID={setCoinID2} />
             </div>
-            <div className="customdrop">
+            <div className="customdrop customdropdown">
               <DropDown days={days} setDays={setDays} />
             </div>
           </div>
@@ -99,15 +97,20 @@ const ComparePage = () => {
           </div>
           <div className="grey-wrapper">
             <div className="priceType">
-              <button className="priceTypeMulti" onClick={() => handlePriceType("prices", setPriceType)}>
+              <button
+                className="priceTypeMulti"
+                onClick={() => handlePriceType("prices", setPriceType)}
+              >
                 Prices
               </button>
-              <button className="priceTypeMulti"
+              <button
+                className="priceTypeMulti"
                 onClick={() => handlePriceType("market_caps", setPriceType)}
               >
                 Market
               </button>
-              <button className="priceTypeMulti"
+              <button
+                className="priceTypeMulti"
                 onClick={() => handlePriceType("total_volumes", setPriceType)}
               >
                 Volume
@@ -119,7 +122,6 @@ const ComparePage = () => {
           <CoinInfo heading={coinData1?.name} desc={coinData1?.desc} />
           <CoinInfo heading={coinData2?.name} desc={coinData2?.desc} />
         </div>
-        
       ) : (
         <Loader />
       )}

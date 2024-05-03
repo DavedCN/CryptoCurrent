@@ -31,3 +31,11 @@
     background-color: lighten($color: $darkgrey, $amount: 5);
   }
 }
+
+.customdropdown {
+  margin-top: 15px;
+  background-color: transparent;
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+}

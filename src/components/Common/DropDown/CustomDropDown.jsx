@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchCoins } from "../../../functions/dashboarddata";
+import { fetchCoins } from "../../../functions/fetchCoins";
 
 const CustomDropdown = ({ setCoinID }) => {
   const [selectedOption, setSelectedOption] = useState("Choose Coin");

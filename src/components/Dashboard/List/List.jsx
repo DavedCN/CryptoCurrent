@@ -1,11 +1,19 @@
 import { BsStar } from "react-icons/bs";
+import { FaStar } from "react-icons/fa6";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
+import { saveItemToWatchlist } from "../../../functions/addFromWatchlist";
+import { ToastContainer } from "react-toastify";
 
 const List = ({ coin, delay }) => {
+  const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+  const [isCoinAdded, setIsCoinAdded] = useState(false);
   const coinChange = coin.price_change_percentage_24h;
   const navigate = useNavigate();
+
   return (
     <motion.tr
       onClick={() => navigate(`/coin/${coin.id}`)}
@@ -68,10 +76,26 @@ const List = ({ coin, delay }) => {
         }`}
       ></td>
       <div
+        onClick={(e) => {
+          e.stopPropagation();
+          if (isCoinAdded) {
+            // remove coin
+
+            removeFromWatchlist(e, coin.id, setIsCoinAdded);
+          } else {
+            setIsCoinAdded(true);
+            saveItemToWatchlist(e, coin.id);
+          }
+        }}
         className={`star-list ${coinChange < 0 ? "red-list" : "green-list"}`}
       >
-        <BsStar />
+        {watchlist && watchlist.includes(coin.id) ? (
+          <FaStar size={15} />
+        ) : (
+          <BsStar size={15} />
+        )}
       </div>
+      <ToastContainer />
     </motion.tr>
   );
 };

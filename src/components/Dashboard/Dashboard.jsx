@@ -1,5 +1,5 @@
 import { useState, useEffect, Fragment } from "react";
-import { fetchCoins } from "../../functions/dashboarddata";
+import { fetchCoins } from "../../functions/fetchCoins.js";
 import Tab from "./Tabs/Tab.tsx";
 import Search from "./Search/Search.jsx";
 import Pagination from "./Pagination/pagination.jsx";
@@ -29,7 +29,7 @@ const Dashboard = () => {
   };
 
   //FILTER ON SEARCH
-  let filteredCoins = coins.filter((coin) => {
+  let filteredCoins = coins?.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -50,7 +50,7 @@ const Dashboard = () => {
         currentPage={currentPage}
       />
       <ScrollToTop />
-      <Footer  />
+      <Footer />
     </Fragment>
   );
 };

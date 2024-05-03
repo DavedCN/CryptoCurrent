@@ -107,7 +107,7 @@ const Tab: React.FC<TabProps> = ({ coins }) => {
                 duration: 0.3,
               }}
             >
-              {coins.length ? (
+              {coins?.length ? (
                 <div
                   className={activeTab.name === "Grid" ? "grid-flex" : "list"}
                 >
@@ -120,9 +120,9 @@ const Tab: React.FC<TabProps> = ({ coins }) => {
                       variants={variants}
                     >
                       {activeTab.name === "Grid" ? (
-                        <Grid coin={coin} />
+                        <Grid coin={coin}  delay={0.5}/>
                       ) : (
-                        <List coin={coin} />
+                        <List coin={coin} delay={0.5} />
                       )}
                     </motion.div>
                   ))}

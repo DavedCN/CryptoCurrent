@@ -5,9 +5,13 @@ import { HiTrendingDown } from "react-icons/hi";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
+import { saveItemToWatchlist } from "../../../functions/addFromWatchlist";
+import { ToastContainer } from "react-toastify";
 
 const Grid = ({ coin, delay }) => {
-  const [fav, setFav] = useState(false);
+  const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+  const [isCoinAdded, setIsCoinAdded] = useState(false);
   const navigate = useNavigate();
   const coinChange = coin.price_change_percentage_24h;
 
@@ -28,9 +32,24 @@ const Grid = ({ coin, delay }) => {
           <h3 className="coin-name">{coin.name}</h3>
         </div>
         <div
-          className={`icon star  ${coinChange < 0 ? "icon-red" : "icon-green"}`}
+          className={`icon star ${coinChange < 0 ? "icon-red" : "icon-green"}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (isCoinAdded) {
+              // remove coin
+
+              removeFromWatchlist(e, coin.id, setIsCoinAdded);
+            } else {
+              setIsCoinAdded(true);
+              saveItemToWatchlist(e, coin.id);
+            }
+          }}
         >
-          {fav ? <FaStar size={15} /> : <BsStar size={15} />}
+          {watchlist && watchlist.includes(coin.id) ? (
+            <FaStar size={15} />
+          ) : (
+            <BsStar size={15} />
+          )}
         </div>
       </div>
       <div className="chip-flex">
@@ -39,7 +58,7 @@ const Grid = ({ coin, delay }) => {
         >
           {coinChange.toFixed(2)}%
         </div>
-        <div className={`icon  ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
+        <div className={`icon ${coinChange < 0 ? "icon-red" : "icon-green"}`}>
           {coinChange < 0 ? (
             <HiTrendingDown size={18} />
           ) : (
@@ -48,7 +67,7 @@ const Grid = ({ coin, delay }) => {
         </div>
       </div>
       <div className="info-container">
-        <h3 className={`coin-price  ${coinChange < 0 ? "red" : "green"}`}>
+        <h3 className={`coin-price ${coinChange < 0 ? "red" : "green"}`}>
           ${coin.current_price.toLocaleString()}
         </h3>
         <p className="total_volume">
@@ -58,6 +77,7 @@ const Grid = ({ coin, delay }) => {
           Market Cap: {coin.market_cap.toLocaleString()}
         </p>
       </div>
+      <ToastContainer />
     </motion.div>
   );
 };

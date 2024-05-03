@@ -31,7 +31,6 @@ function Watchlist() {
             style={{
               display: "flex",
               justifyContent: "center",
-              margin: "2rem",
             }}
           >
             <Button link="/dashboard" text="Dashboard" />

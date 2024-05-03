@@ -96,30 +96,31 @@ const ComparePage = () => {
           <div className="grey-wrapper">
             <List coin={coinData2} />
           </div>
+          <div className="grey-wrapper">
+            <div className="priceType">
+              <button onClick={() => handlePriceType("prices", setPriceType)}>
+                Prices
+              </button>
+              <button
+                onClick={() => handlePriceType("market_caps", setPriceType)}
+              >
+                Market
+              </button>
+              <button
+                onClick={() => handlePriceType("total_volumes", setPriceType)}
+              >
+                Volume
+              </button>
+            </div>
+            {data && <LineChartMulti chartData={data} />}
+          </div>
+
+          <CoinInfo heading={coinData1?.name} desc={coinData1?.desc} />
+          <CoinInfo heading={coinData2?.name} desc={coinData2?.desc} />
         </div>
       ) : (
         <Loader />
       )}
-
-      <div className="grey-wrapper">
-        <div className="priceType">
-          <button onClick={() => handlePriceType("prices", setPriceType)}>
-            Prices
-          </button>
-          <button onClick={() => handlePriceType("market_caps", setPriceType)}>
-            Market
-          </button>
-          <button
-            onClick={() => handlePriceType("total_volumes", setPriceType)}
-          >
-            Volume
-          </button>
-        </div>
-        {data && <LineChartMulti chartData={data} />}
-      </div>
-
-      <CoinInfo heading={coinData1?.name} desc={coinData1?.desc} />
-      <CoinInfo heading={coinData2?.name} desc={coinData2?.desc} />
     </div>
   );
 };

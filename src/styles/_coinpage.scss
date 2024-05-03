@@ -37,10 +37,11 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10rem;
-  padding: 2rem ;
+  padding: 2rem;
 
   @media (max-width: 768px) {
-    gap: 1rem;
+    gap: 0rem;
+    padding: 1rem;
   }
   width: 90%;
   border-radius: 10px;
@@ -86,7 +87,6 @@
 
       @media (max-width: 768px) {
         font-size: 10px;
-      
       }
       &:hover {
         background-color: darken($color: $grey, $amount: 10);

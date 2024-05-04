@@ -17,7 +17,7 @@ ThIS PROJECT WAS BUILT FOR REAL TIME CRYPTO ANALYSIS WITH THE FOLLOWING:
 - **CHARTJS**
 - **CRYPTO-NEWS**
 
-<img  src="![../CryptoCurrent/src/assets/LiveAppImage.png](https://github.com/DavedCn/cryptocurrent/blob/main/src/assets/LiveAppImage.png)"
+<img "![../CryptoCurrent/src/assets/LiveAppImage.png](https://github.com/DavedCn/cryptocurrent/blob/main/src/assets/LiveAppImage.png)"
 
 >
 
